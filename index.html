@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MyFame</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             background: #f4f4f4;
             color: #333;
-            margin: 0;
-            padding: 0;
         }
+
         header {
             background: #282c34;
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .logo {
+            font-size: 1.5em;
+        }
+
+        nav {
+            display: none;
+            flex-direction: column;
+            background: #282c34;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-bottom: 1px solid #444;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         main {
             padding: 20px;
             text-align: center;
         }
+
         footer {
             background: #ddd;
             text-align: center;
@@ -30,19 +61,55 @@
             width: 100%;
             bottom: 0;
         }
+
+        @media (min-width: 600px) {
+            nav {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                background: none;
+                box-shadow: none;
+            }
+            nav a {
+                border: none;
+                padding: 0 15px;
+            }
+            .menu-toggle {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to MyFame</h1>
-        <p>Your project description here</p>
+        <div class="logo">MyFame</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a> <!-- Link to another page -->
+        </nav>
     </header>
 
     <main>
-        <h2>About MyFame</h2>
+        <h2>Welcome to MyFame</h2>
         <p>This is the homepage of the MyFame project.</p>
-        <p>Edit this file to start building your site.</p>
     </main>
 
     <footer>
+        &copy; 2025 MyFame Project
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+    </script>
+
+</body>
+</html>
